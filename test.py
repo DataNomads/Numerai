@@ -17,7 +17,7 @@ class DownloadAndExtractData(luigi.Task):
     Extends:
         luigi.task
     """
-    task_namespace = 'download_data'
+    # task_namespace = 'download_data'
     output_path = luigi.Parameter(default="./data/raw")
     load_dotenv(find_dotenv())
     public_id = luigi.Parameter(os.getenv("public_id"))
@@ -65,4 +65,4 @@ if __name__ == '__main__':
     # load_dotenv(find_dotenv())
     # public_id = luigi.Parameter(os.getenv("public_id"))
     # secret_key = luigi.Parameter(os.getenv("secret_key"))
-    luigi.run([DownloadAndExtractData])
+    luigi.run()
