@@ -17,7 +17,8 @@ class DownloadAndExtractData(luigi.Task):
     Extends:
         luigi.task
     """
-    task_namespace = 'download_data'
+    #task_namespace = 'download_data'
+    print("Current working directory: ", os.getcwd())
     output_path = luigi.Parameter(default="./data/raw")
     load_dotenv(find_dotenv())
     public_id = luigi.Parameter(os.getenv("public_id"))
@@ -29,7 +30,13 @@ class DownloadAndExtractData(luigi.Task):
         except ValueError:
             print("Incorrect public_id or secret_key")
 
+        if self.api.check_new_round():
+            print("new round has started wihtin the last 24hours!")
+        else:
+            print("no new round within the last 24 hours")
+
         current_round = self.api.get_current_round()
+        print("Current Round: ", current_round)
         dataset_name = "numerai_dataset_{0}.zip".format(current_round)
         dataset_dir = "numerai_dataset_{0}".format(current_round)
 

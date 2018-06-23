@@ -54,4 +54,13 @@ Project Organization
 
 --------
 
+
+# Download data
+
+* Script used to download current round data: ```python/src/data/download_data_numerai.py```
+* To run the script:
+    * ```python .\src\data\download_data_numerai.pyD cownloadAndExtractData --local-scheduler```
+
+Please check if .\data\raw if the folder has been downloaded and unzipped.
+
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
